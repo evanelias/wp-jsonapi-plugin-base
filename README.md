@@ -1,7 +1,9 @@
 wp-jsonapi-plugin-base
 ======================
-(c) 2010 Evan Elias, except where indicated in bundled libraries
+(c) 2010 Evan Elias, except where indicated in bundled libraries.  
 Released under the GPL.
+
+-----
 
 **This is a base class for making WordPress plugins easier and cleaner to write, with a particular focus on plugins that interact with JSON APIs.**
 
@@ -18,11 +20,11 @@ Ordinarily, WordPress plugin authors working with JSON APIs face the following c
 
 **This repo provides a base class that addresses all of those issues!** It also provides a clean, object-oriented approach to writing WordPress plugins in general.
 
-# Bundles Services_JSON (http://pear.php.net/package/Services_JSON/, released under BSD license) and wraps it safely.  It will only be loaded if the PHP JSON module isn't found, nor is Services_JSON already loaded via WP 2.9+.
+1 Bundles Services_JSON (http://pear.php.net/package/Services_JSON/, released under BSD license) and wraps it safely.  It will only be loaded if the PHP JSON module isn't found, nor is Services_JSON already loaded via WP 2.9+.
 
-# Bundles libcurlemu (http://code.blitzaffe.com/pages/phpclasses/category/52/fileid/7, by Steve Blinch, released under GPL2), which only inits itself if cURL support in PHP is not found.  wp-jsonapi-plugin-base uses WP\_PHP for GET and POST requests, but uses libcurlemu for all others, since WP\_PHP cannot be reliably used for PUT, DELETE, HEAD, OPTIONS, etc.
+1 Bundles libcurlemu (http://code.blitzaffe.com/pages/phpclasses/category/52/fileid/7, by Steve Blinch, released under GPL2), which only inits itself if cURL support in PHP is not found.  wp-jsonapi-plugin-base uses WP\_PHP for GET and POST requests, but uses libcurlemu for all others, since WP\_PHP cannot be reliably used for PUT, DELETE, HEAD, OPTIONS, etc.
 
-# Provides a clean interface for hitting JSON API endpoints.
+1 Provides a clean interface for hitting JSON API endpoints.
 
 
 
