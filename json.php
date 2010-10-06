@@ -1,6 +1,8 @@
 <?php
 
-// this is a modified json.php -- wrapped in conditionals to remain compatible with WP 2.9x
+// This is a copy of json.php from Services_JSON, but wrapped in conditionals to remain
+// compatible with WP 2.9+, which already bundles it.  See comment below for copyright
+// and license.
 
 if (!function_exists('json_encode')) {
 
