@@ -56,7 +56,9 @@ class WPPluginBase {
 
     /** 
      * Makes an HTTP request to $url using HTTP method $method, containing
-     * request body $body.
+     * request body $body if supplied.  Note that the caller should urlencode
+     * $body if desired; this function will not do it for you, since many
+     * JSON APIs do not encode their POST or PUT bodies.
      */
     function http_api($url, $method="GET", $body='') {
         $url = $this->api_base . $url;
@@ -89,6 +91,8 @@ class WPPluginBase {
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            if ($body)
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
             $json_raw = curl_exec($ch);
             if (curl_errno($ch)) {
                 $this->debug("[ERROR] $method $url $body");
