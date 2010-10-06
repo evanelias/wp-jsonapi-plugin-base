@@ -47,6 +47,8 @@ class WPPluginBase {
      * instance, if you blank responses are indicative of an error.
      */
     function acceptable_response($raw_response, $http_response_code) {
+        // This implementation does not yet support redirect codes,
+        // so we consider any 3xx, 4xx, or 5xx response code an error.
         if ($http_response_code >= 300)
             return false;
         return true;
